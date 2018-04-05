@@ -7,11 +7,11 @@
 
 
 int rc,rc2,rc3,rc4,rc5;
-int newprio = 25;
-int newprio2 = 24;
+int newprio = 21;
+int newprio2 = 22;
 int newprio3 = 23;
-int newprio4 = 22;
-int newprio5 = 21;
+int newprio4 = 24;
+int newprio5 = 25;
 pthread_attr_t attr,attr2,attr3,attr4,attr5;
 struct sched_param param,param2,param3,param4,param5;
 int sum = 0;
@@ -97,6 +97,8 @@ int main() {
     pthread_join(tid3, NULL);
     pthread_join(tid4, NULL);
     pthread_join(tid5, NULL);
+
+    printf("%i %i %i %i %i",rc,rc2,rc3,rc4,rc5);
 
     return 0;
 }
