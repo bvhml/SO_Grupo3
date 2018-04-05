@@ -17,27 +17,27 @@ struct sched_param param,param2,param3,param4,param5;
 int sum = 0;
 
 void *hello1(void *param) {
-    int i;
+    sleep(3);
     printf("Hello from thread 1 \n");
     return NULL;
 }
 void *hello2(void *param) {
-    int i;
+    sleep(3);
     printf("Hello from thread 2 \n");
     return NULL;
 }
 void *hello3(void *param) {
-    int i;
+    sleep(3);
     printf("Hello from thread 3 \n");
     return NULL;
 }
 void *hello4(void *param) {
-    int i;
+    sleep(3);
     printf("Hello from thread 4 \n");
     return NULL;
 }
 void *hello5(void *param) {
-    int i;
+    sleep(3);
     printf("Hello from thread 5 \n");
     return NULL;
 }
@@ -91,6 +91,7 @@ int main() {
     pthread_create(&tid4, &attr4, hello4, NULL);
     pthread_create(&tid5, &attr5, hello5, NULL);
 
+    
     //Wait for both threads to finish:
     pthread_join(tid1, NULL);
     pthread_join(tid2, NULL);
@@ -98,7 +99,7 @@ int main() {
     pthread_join(tid4, NULL);
     pthread_join(tid5, NULL);
 
-    printf("%i %i %i %i %i",rc,rc2,rc3,rc4,rc5);
+    printf("%i %i %i %i %i \n",rc,rc2,rc3,rc4,rc5);
 
     return 0;
 }
