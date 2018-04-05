@@ -54,30 +54,35 @@ int main() {
     rc = pthread_attr_init(&attr);
     rc = pthread_attr_getschedparam(&attr,&param);
     param.sched_priority = newprio;
+    rc = pthread_attr_setschedpolicy(&attr, SCHED_RR);
     rc = pthread_attr_setschedparam(&attr,&param);
 
     //Definir prioridades
     rc2 = pthread_attr_init(&attr2);
     rc2 = pthread_attr_getschedparam(&attr2,&param2);
     param2.sched_priority = newprio2;
+    rc2 = pthread_attr_setschedpolicy(&attr2, SCHED_RR);
     rc2 = pthread_attr_setschedparam(&attr2,&param2);
 
     //Definir prioridades
     rc3 = pthread_attr_init(&attr3);
     rc3 = pthread_attr_getschedparam(&attr3,&param3);
     param3.sched_priority = newprio3;
+    rc3 = pthread_attr_setschedpolicy(&attr3, SCHED_RR);
     rc3 = pthread_attr_setschedparam(&attr3,&param3);
 
     //Definir prioridades
     rc4 = pthread_attr_init(&attr4);
     rc4 = pthread_attr_getschedparam(&attr4,&param4);
     param4.sched_priority = newprio4;
+    rc4 = pthread_attr_setschedpolicy(&attr4, SCHED_RR);
     rc4 = pthread_attr_setschedparam(&attr4,&param4);
 
     //Definir prioridades
     rc5 = pthread_attr_init(&attr5);
     rc5 = pthread_attr_getschedparam(&attr5,&param5);
     param5.sched_priority = newprio5;
+    rc5 = pthread_attr_setschedpolicy(&attr5, SCHED_RR);
     rc5 = pthread_attr_setschedparam(&attr5,&param5);
 
     pthread_create(&tid1, &attr, hello1, NULL);
