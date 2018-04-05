@@ -7,37 +7,32 @@
 
 
 int rc,rc2,rc3,rc4,rc5;
-int newprio = 21;
-int newprio2 = 22;
-int newprio3 = 23;
-int newprio4 = 24;
-int newprio5 = 25;
+long newprio = 25;
+long newprio2 = 50;
+long newprio3 = 70;
+long newprio4 = 80;
+long newprio5 = 99;
 pthread_attr_t attr,attr2,attr3,attr4,attr5;
 struct sched_param param,param2,param3,param4,param5;
 int sum = 0;
 
 void *hello1(void *param) {
-    sleep(3);
     printf("Hello from thread 1 \n");
     return NULL;
 }
 void *hello2(void *param) {
-    sleep(3);
     printf("Hello from thread 2 \n");
     return NULL;
 }
 void *hello3(void *param) {
-    sleep(3);
     printf("Hello from thread 3 \n");
     return NULL;
 }
 void *hello4(void *param) {
-    sleep(3);
     printf("Hello from thread 4 \n");
     return NULL;
 }
 void *hello5(void *param) {
-    sleep(3);
     printf("Hello from thread 5 \n");
     return NULL;
 }
@@ -53,10 +48,12 @@ int main() {
     //Definir prioridades
     rc = pthread_attr_init(&attr);
     rc = pthread_attr_getschedparam(&attr,&param);
+    printf("Prioridad original: %i \n",param.sched_priority);
     param.sched_priority = newprio;
     rc = pthread_attr_setschedpolicy(&attr, SCHED_RR);
     rc = pthread_attr_setschedparam(&attr,&param);
-
+    rc = pthread_attr_getschedparam(&attr,&param);
+    printf("Prioridad modificada: %i \n",param.sched_priority);
     //Definir prioridades
     rc2 = pthread_attr_init(&attr2);
     rc2 = pthread_attr_getschedparam(&attr2,&param2);
